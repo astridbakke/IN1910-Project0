@@ -1,4 +1,6 @@
-from calculator import add
+""" To run this test use this command: pytest """
+
+from calculator import add, divide
 import numpy as np
 import pytest
 
@@ -10,8 +12,6 @@ import pytest
 def test_add(x, y, expected):
     assert add(x, y) == expected
 
-
-
 @pytest.mark.parametrize("x, y, expected", [
     (0.1, 0.2, 0.3),
     (1.5, 2.5, 4.0),
@@ -19,3 +19,14 @@ def test_add(x, y, expected):
 ])
 def test_add_floats(x, y, expected):
     assert np.isclose(add(x, y), expected)
+
+@pytest.mark.parametrize("x, y, expected", [
+    (6, 2, 3),
+    (5, 2, 2.5),
+    (-9, 3, -3)
+])
+def test_divide(x, y, expected):
+    assert np.isclose(divide(x, y), expected)    
+
+
+
