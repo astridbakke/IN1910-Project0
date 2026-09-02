@@ -24,8 +24,16 @@ def sin(x: float, N: int = 20) -> float:
     return total
 
 def mean(x: list) -> float:
-    """ Computes the mean of a list of numbers """
+    """ Computes the mean of a list of numbers. """
     return sum(x) / len(x)
+
+
+def var(x: list) -> float:
+    """ Computes the unbiased sample variance of a list of numbers. """
+    pass
+
+
+
 
 
 

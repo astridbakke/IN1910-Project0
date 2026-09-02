@@ -56,3 +56,13 @@ def test_mean(numbers, expected):
     assert np.isclose(mean(numbers), expected)           
 
 
+@pytest.mark.parametrize("numbers, expected", [
+    ([1, 2, 3], 1.0),
+    ([1, 3, 5], 4.0),
+    ([10, 12, 13, 16], 6.25),
+    ([1, 2, 3, 4, 5], 2.5),
+    ([10, 20, 30], 100.0),
+])
+def test_var(numbers, expected):
+    assert np.isclose(var(numbers), expected)           
+
