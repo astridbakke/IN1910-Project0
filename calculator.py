@@ -23,6 +23,9 @@ def sin(x: float, N: int = 20) -> float:
         total += term
     return total
 
+def mean(x: list) -> float:
+    """ Computes the mean of a list of numbers """
+    pass
 
 
 
