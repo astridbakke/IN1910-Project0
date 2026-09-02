@@ -1,6 +1,6 @@
 """ To run this test use this command: pytest """
 
-from calculator import add, divide
+from calculator import add, divide, factorial
 import numpy as np
 import pytest
 
@@ -26,7 +26,16 @@ def test_add_floats(x, y, expected):
     (-9, 3, -3)
 ])
 def test_divide(x, y, expected):
-    assert np.isclose(divide(x, y), expected)    
+    assert np.isclose(divide(x, y), expected)
+
+@pytest.mark.parametrize("n, expected", [
+    (0, 1),
+    (1, 1),
+    (5, 120),
+    (6, 720)
+])
+def test_factorial(n, expected):
+    assert factorial(n) == expected           
 
 
 
