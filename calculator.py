@@ -6,5 +6,5 @@ def add(x: float, y: float) -> float:
 
 def divide(x: float, y: float) -> float:
     """Divide x by y and return the result."""
-    pass
+    return x / y
 
