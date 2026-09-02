@@ -1,6 +1,6 @@
 """ To run this test use this command: pytest """
 
-from calculator import add, divide, factorial, sin, mean
+from calculator import add, divide, factorial, sin, mean, var
 import numpy as np
 import pytest
 

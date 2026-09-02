@@ -30,7 +30,12 @@ def mean(x: list) -> float:
 
 def var(x: list) -> float:
     """ Computes the unbiased sample variance of a list of numbers. """
-    pass
+    n = len(x)
+    if n <= 1:
+        raise ValueError("Variance requires at least 2 data points.")
+    m = mean(x)
+    sum_sq_diff = sum((xi - m) ** 2 for xi in x)
+    return sum_sq_diff / (n - 1)
 
 
 
