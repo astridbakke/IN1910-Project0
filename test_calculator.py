@@ -1,6 +1,6 @@
 """ To run this test use this command: pytest """
 
-from calculator import add, divide, factorial
+from calculator import add, divide, factorial, sin
 import numpy as np
 import pytest
 
@@ -37,5 +37,13 @@ def test_divide(x, y, expected):
 def test_factorial(n, expected):
     assert factorial(n) == expected           
 
+@pytest.mark.parametrize("x, expected", [
+    (0, 0),
+    (np.pi / 4, 1 / np.sqrt(2)),
+    (np.pi / 2, 1),
+    (3*np.pi / 2, -1)
+])
+def test_sin(x, expected):
+    assert np.isclose(sin(x), expected)           
 
 

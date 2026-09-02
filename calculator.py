@@ -7,13 +7,17 @@ def divide(x: float, y: float) -> float:
     return x / y
 
 def factorial(n: int) -> int:
-    """ Computes the factorial of an integer n """
+    """ Computes the factorial of an integer n. """
     if n < 0:
         raise ValueError("Factorial is not defined for negative numbers.")
     result = 1
     for i in range(1, n + 1):
         result *= i
     return result
+
+def sin(x: float, N: int = 20) -> float:
+    """ Computes the sine of an angle using a Taylor series approximation. """
+    pass
 
 
 
