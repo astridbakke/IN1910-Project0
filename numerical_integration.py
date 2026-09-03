@@ -36,6 +36,22 @@ def integrate(
 
 
 
+def convergence_rate(f: Callable[[float], float], a: float, b: float, exact_value: float, n_values: list, method: str) -> float:
+    """ Estimates the rate of convergence r using two different n values (the last two in the list). """
+    n1 = n_values[-2]
+    n2 = n_values[-1]
+    
+    # Beregn approksimasjon og feil for n1 og n2
+    approx1 = integrate(f, a, b, n1, method=method)
+    approx2 = integrate(f, a, b, n2, method=method)
+    
+    error1 = abs(approx1 - exact_value)
+    error2 = abs(approx2 - exact_value)
+    
+    # Formelen for konvergensrate r
+    r = np.log(error1 / error2) / np.log(n2 / n1)
+    return r
+
 
 
 
