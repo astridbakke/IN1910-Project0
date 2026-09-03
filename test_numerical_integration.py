@@ -1,3 +1,5 @@
+""" To run this test use this command: pytest """
+
 import numpy as np
 import pytest
 from numerical_integration import left_riemann_sum, midpoint, integrate, convergence_rate
