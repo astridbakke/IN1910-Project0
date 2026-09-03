@@ -34,3 +34,8 @@ def test_integrate(method, n):
     
     error = abs(approx_value - exact_value)
     assert error < 0.001
+
+def test_integrate_raises_ValueError_for_invalid_method():
+    with pytest.raises(ValueError):
+        f = lambda x: (3 * x**2) * np.exp(x**3)
+        integrate(f, a=0.0, b=1.0, n=10, method="ugyldig_metode")    
