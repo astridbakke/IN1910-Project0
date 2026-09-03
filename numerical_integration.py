@@ -12,23 +12,36 @@ def left_riemann_sum(f: Callable[[float], float], a: float, b: float, n: int) ->
     return h * total
 
 
+def midpoint(f: Callable[[float], float], a: float, b: float, n: int) -> float:
+    """ Computes the integral using the midpoint/trapezoidal rule. """
+    h = (b - a) / n
+    total = 0.0
+    for i in range(n):
+        xi = a + i * h
+        total += 0.5 * (f(xi) + f(xi + h))
+    return h * total
+
+
 if __name__ == "__main__":
-    def plot_integral(f, x, h=0.3, method="Left Riemann sum"):
+    import matplotlib.pyplot as plt
+
+    def plot_integral(f, x, h=0.3, method="Midpoint"):
         y = f(x)
+
         fig, ax = plt.subplots()
         ax.plot(x, y)
 
         for xi in np.arange(0, x[-1], h):
-            yi = f(xi)
+            if method == "Midpoint":
+                yi = 0.5 * (f(xi) + f(xi + h))
+            else:
+                yi = f(xi)
             ax.plot([xi, xi, xi + h, xi + h], [0, yi, yi, 0], color="r")
-        
         ax.grid()
         ax.set_title(f"{method} (h = {h})")
         plt.show()
 
     x = np.linspace(0, 1)
     f = lambda x: (3 * x**2) * np.exp(x**3)
-    
-    resultat = left_riemann_sum(f, 0, 1, n=10)
-    print(f"Areal (n=10): {resultat}")
-    plot_integral(f, x)
+
+    plot_integral(f, x, method="Left Riemann sum")
