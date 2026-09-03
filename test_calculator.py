@@ -9,7 +9,7 @@ import pytest
     (-1, 1, 0),
     (5, 5, 10)
 ])
-def test_add(x, y, expected):
+def test_add(x: int, y: int, expected: int) -> None:
     assert add(x, y) == expected
 
 @pytest.mark.parametrize("x, y, expected", [
@@ -17,7 +17,7 @@ def test_add(x, y, expected):
     (1.5, 2.5, 4.0),
     (-0.5, 0.5, 0.0)
 ])
-def test_add_floats(x, y, expected):
+def test_add_floats(x: float, y: float, expected: float) -> None:
     assert np.isclose(add(x, y), expected)
 
 @pytest.mark.parametrize("x, y, expected", [
@@ -25,7 +25,7 @@ def test_add_floats(x, y, expected):
     (5, 2, 2.5),
     (-9, 3, -3)
 ])
-def test_divide(x, y, expected):
+def test_divide(x: float, y: float, expected: float) -> None:
     assert np.isclose(divide(x, y), expected)
 
 @pytest.mark.parametrize("n, expected", [
@@ -34,7 +34,7 @@ def test_divide(x, y, expected):
     (5, 120),
     (6, 720)
 ])
-def test_factorial(n, expected):
+def test_factorial(n: int, expected: int) -> None:
     assert factorial(n) == expected           
 
 @pytest.mark.parametrize("x, expected", [
@@ -43,7 +43,7 @@ def test_factorial(n, expected):
     (np.pi / 2, 1),
     (3*np.pi / 2, -1)
 ])
-def test_sin(x, expected):
+def test_sin(x: float, expected: float) -> None:
     assert np.isclose(sin(x), expected)           
 
 
@@ -52,7 +52,7 @@ def test_sin(x, expected):
     ([10, 20, 30], 20.0),
     ([1, 2], 1.5)
 ])
-def test_mean(numbers, expected):
+def test_mean(numbers: list[float], expected: float) -> None:
     assert np.isclose(mean(numbers), expected)           
 
 
@@ -63,18 +63,18 @@ def test_mean(numbers, expected):
     ([1, 2, 3, 4, 5], 2.5),
     ([10, 20, 30], 100.0),
 ])
-def test_var(numbers, expected):
+def test_var(numbers: list[float], expected: float) -> None:
     assert np.isclose(var(numbers), expected)       
 
 
-def test_factorial_raises_ValueError_for_negatives():
+def test_factorial_raises_ValueError_for_negatives() -> None:
     with pytest.raises(ValueError):
         factorial(-1)        
 
-def test_factorial_raises_TypeError_for_decimals():
+def test_factorial_raises_TypeError_for_decimals() -> None:
     with pytest.raises(TypeError):
-        factorial(1.5)
+        factorial(1.5)  # type: ignore[arg-type]
 
-def test_divide_raises_ZeroDivisionError_for_zero():
+def test_divide_raises_ZeroDivisionError_for_zero() -> None:
     with pytest.raises(ZeroDivisionError):
         divide(5, 0)

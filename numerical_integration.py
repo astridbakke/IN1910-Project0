@@ -4,6 +4,7 @@ import numpy as np
 
 
 def left_riemann_sum(f: Callable[[float], float], a: float, b: float, n: int) -> float:
+    """Computes the integral using the left Riemann sum method."""
     h = (b - a) / n
     total = 0.0
     for i in range(n):
@@ -59,7 +60,12 @@ def convergence_rate(f: Callable[[float], float], a: float, b: float, exact_valu
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
-    def plot_integral(f, x, h=0.3, method="Midpoint"):
+    def plot_integral(
+        f: Callable[[np.ndarray], np.ndarray], 
+        x: np.ndarray, 
+        h: float = 0.3, 
+        method: str = "Midpoint"
+    ) -> None:
         y = f(x)
 
         fig, ax = plt.subplots()
