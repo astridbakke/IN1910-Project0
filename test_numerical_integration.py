@@ -1,5 +1,6 @@
 import numpy as np
-from numerical_integration import left_riemann_sum, midpoint
+import pytest
+from numerical_integration import left_riemann_sum, midpoint, integrate
 
 
 def test_left_riemann_sum():
@@ -22,3 +23,14 @@ def test_midpoint():
     
     error = abs(approx_value - exact_value)
     assert error < 0.001    
+
+@pytest.mark.parametrize("method, n", [("midpoint", 1000), ("left_riemann_sum", 5000)])
+def test_integrate(method, n):
+    f = lambda x: (3 * x**2) * np.exp(x**3)
+    a, b = 0.0, 1.0
+    exact_value = np.exp(1) - 1
+    
+    approx_value = integrate(f, a, b, n, method=method)
+    
+    error = abs(approx_value - exact_value)
+    assert error < 0.001

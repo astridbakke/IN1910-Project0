@@ -22,6 +22,24 @@ def midpoint(f: Callable[[float], float], a: float, b: float, n: int) -> float:
     return h * total
 
 
+
+def integrate(
+    f: Callable[[float], float], a: float, b: float, n: int, method: str = "midpoint"
+) -> float:
+    """ function for calculating an integral using a chosen method. """
+    if method == "midpoint":
+        return midpoint(f, a, b, n)
+    elif method == "left_riemann_sum":
+        return left_riemann_sum(f, a, b, n)
+    else:
+        raise ValueError(f"Ugyldig metode: '{method}'. Bruk 'midpoint' eller 'left_riemann_sum'.")
+
+
+
+
+
+
+
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
