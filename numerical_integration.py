@@ -4,6 +4,7 @@ import numpy as np
 
 
 def left_riemann_sum(f: Callable[[float], float], a: float, b: float, n: int) -> float:
+    """Computes the integral using the left Riemann sum method."""
     h = (b - a) / n
     total = 0.0
     for i in range(n):
