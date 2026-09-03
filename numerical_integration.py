@@ -59,7 +59,12 @@ def convergence_rate(f: Callable[[float], float], a: float, b: float, exact_valu
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
-    def plot_integral(f, x, h=0.3, method="Midpoint"):
+    def plot_integral(
+        f: Callable[[np.ndarray], np.ndarray], 
+        x: np.ndarray, 
+        h: float = 0.3, 
+        method: str = "Midpoint"
+    ) -> None:
         y = f(x)
 
         fig, ax = plt.subplots()
