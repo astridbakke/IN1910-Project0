@@ -4,10 +4,12 @@ def add(x: float, y: float) -> float:
 
 def divide(x: float, y: float) -> float:
     """ Divide x by y and return the result. """
-    return x / y
+    return x / y #Python gir automatisk en ZeroDivisionError når man prøver å dele på null
 
 def factorial(n: int) -> int:
     """ Computes the factorial of an integer n. """
+    if type(n) is not int:
+        raise TypeError("Must be an integer.")
     if n < 0:
         raise ValueError("Factorial is not defined for negative numbers.")
     result = 1
