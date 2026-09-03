@@ -64,5 +64,17 @@ def test_mean(numbers, expected):
     ([10, 20, 30], 100.0),
 ])
 def test_var(numbers, expected):
-    assert np.isclose(var(numbers), expected)           
+    assert np.isclose(var(numbers), expected)       
 
+
+def test_factorial_raises_ValueError_for_negatives():
+    with pytest.raises(ValueError):
+        factorial(-1)        
+
+def test_factorial_raises_TypeError_for_decimals():
+    with pytest.raises(TypeError):
+        factorial(1.5)
+
+def test_divide_raises_ZeroDivisionError_for_zero():
+    with pytest.raises(ZeroDivisionError):
+        divide(5, 0)
