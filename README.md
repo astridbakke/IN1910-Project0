@@ -18,6 +18,9 @@ Repository URL: https://github.uio.no/IN1910/H26_project0_astribak
 
 ## AI Usage Declaration
 During the work on this project, I have used an AI assistant (Gemini) as a collaborative tool for the following tasks:
-- Troubleshooting and explaining static type-checking errors from `mypy`
+- Understanding the numerical integration exercise (Riemann sums, the midpoint method, and rate of convergence).
+- Clarifying Python concepts (such as `if __name__ == "__main__"`).
+- Reviewing and comparing code implementations.
+- Troubleshooting and explaining static type-checking errors from `mypy`.
 - Verifying the structure of `pytest` test suites and ensuring correct docstring placement.
 - Guidance on Git commands and branch management.
